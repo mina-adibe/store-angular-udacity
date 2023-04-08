@@ -1,1 +1,36 @@
-<p>product-item works!</p>
+<div class="flex flex-col flex-wrap mt-16 justify-start items-center gap-2">
+  <a>
+    <img
+      src="{{ product.url }}"
+      alt="{{ product.name }}"
+      class="product-image w-[290px] p-5 m-[6px] list-none border border-[#33b5e5]"
+    />
+  </a>
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.price }} EU</p>
+  <form class="flex flex-col flex-wrap justify-start items-center gap-2">
+    <div>
+      <select
+        class="w-[108px]"
+        name="selectedAmount"
+        formControlName="selectedAmount"
+      >
+        <option value="0" disabled selected>
+          <p>Amount</p>
+        </option>
+        <option *ngFor="let number of [1, 2, 3, 4, 5, 6]" [value]="number">
+          {{ number }}
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        class="text-white py-2 px-6 rounded-md bg-blue-500 hover:bg-blue-600 mt-3"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </form>
+</div>
