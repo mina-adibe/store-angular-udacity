@@ -1,1 +1,29 @@
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
+<header class="bg-[#33b5e5] p-4 text-white">
+  <nav
+    class="flex justify-between items-center"
+    role="navigation"
+    aria-label="navigation links"
+  >
+    <a href="#" class="text-xl font-bold" routerLink="/" title="Go to Home Page"
+      >Store
+    </a>
+    <div>
+      <a
+        routerLink="products"
+        class="text-lg font-medium mr-4"
+        title="View products"
+        aria-label="View products"
+        routerLinkActive="active-link"
+        >Products</a
+      >
+      <a
+        routerLink="cart"
+        class="text-lg font-medium"
+        title="View cart"
+        aria-label="View cart"
+        routerLinkActive="active-link"
+        >Cart</a
+      >
+    </div>
+  </nav>
+</header>
