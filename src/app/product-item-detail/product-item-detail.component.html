@@ -1,1 +1,20 @@
-<p>product-item-detail works!</p>
+<div class="flex justify-center items-center mt-16">
+  <img
+    [src]="product.url"
+    [alt]="product.name"
+    class="w-80 border rounded-xl"
+  />
+  <div class="mx-32">
+    <div class="product-data">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <p>{{ product.price | currency : "EUR" }}</p>
+      <!-- <p *ngIf="product.category">{{ product.category }}</p> -->
+    </div>
+
+    <app-add-card-selector [product]="product"></app-add-card-selector>
+    <a routerLink="/products" routerLinkActive="router-link-active" class="mt-2"
+      >← Back to Products</a
+    >
+  </div>
+</div>
