@@ -1,0 +1,31 @@
+<div class="flex mb-5">
+  <a
+    [routerLink]="['/products', product.id]"
+    routerLinkActive="router-link-active"
+  >
+    <img
+      [src]="product.url"
+      [alt]="product.name"
+      class="w-[100px] rounded-[10px]"
+    />
+  </a>
+  <div class="flex justify-center flex-col ml-20 gap-2 justify-items-start">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.price | currency : "EUR" }}</p>
+    <p [formGroup]="myForm">
+      Amount:
+      <input
+        class="w-20 text-center form-control"
+        type="number"
+        min="1"
+        formControlName="productAmount"
+      />
+    </p>
+    <button
+      class="mb-2 rounded-lg bg-red-500 px-1 py-1 text-base"
+      (click)="removeProductFromCart(product)"
+    >
+      Remove
+    </button>
+  </div>
+</div>

@@ -11,6 +11,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { AddCardSelectorComponent } from './shared/add-card-selector/add-card-selector.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProductListComponent,
     HeaderComponent,
     PageNotFoundComponent,
+    CartItemComponent,
+    AddCardSelectorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
