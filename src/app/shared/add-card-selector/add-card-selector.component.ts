@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Product } from 'src/app/models/product.models';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -17,18 +16,17 @@ export class AddCardSelectorComponent implements OnInit {
     description: '',
     amount: 0,
   };
-  myForm: FormGroup;
+  productAmount: number = 0;
 
-  constructor(private cartService: CartService) {
-    this.myForm = new FormGroup({
-      productAmount: new FormControl(0),
-    });
-  }
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
 
+  handleSelectedAmount(amountValue: number) {
+    this.product.amount = amountValue;
+  }
+
   addToCart(product: Product) {
-    this.product.amount = Number(this.myForm.value.productAmount);
     this.cartService.addToCart(product);
   }
 }

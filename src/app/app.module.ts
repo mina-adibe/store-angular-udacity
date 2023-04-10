@@ -11,7 +11,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { AddCardSelectorComponent } from './shared/add-card-selector/add-card-selector.component';
 
@@ -33,6 +33,7 @@ import { AddCardSelectorComponent } from './shared/add-card-selector/add-card-se
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

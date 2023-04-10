@@ -1,6 +1,5 @@
 <form
   class="flex flex-col flex-wrap justify-start items-center gap-2"
-  [formGroup]="myForm"
   (ngSubmit)="addToCart(product)"
 >
   <div>
@@ -8,7 +7,8 @@
       <select
         class="w-[108px]"
         name="productAmount"
-        formControlName="productAmount"
+        [(ngModel)]="productAmount"
+        (ngModelChange)="handleSelectedAmount(productAmount)"
       >
         <option [value]="0" disabled selected>Amount</option>
         <option *ngFor="let number of [1, 2, 3, 4, 5, 6]" [value]="number">
@@ -19,10 +19,9 @@
 
     <div>
       <button
-        [disabled]="myForm.controls['productAmount'].value === 0"
+        [disabled]="productAmount === 0"
         [ngClass]="{
-          'opacity-50 cursor-not-allowed':
-            myForm.controls['productAmount'].value === 0
+          'opacity-50 cursor-not-allowed': productAmount === 0
         }"
         type="submit"
         class="text-white py-2 px-6 rounded-md bg-blue-500 hover:bg-blue-600 mt-3"
