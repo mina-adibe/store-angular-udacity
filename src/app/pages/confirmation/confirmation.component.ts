@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product, User } from '../models/product.models';
-import { CartService } from '../services/cart.service';
+import { Product, User } from '../../models/product.models';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-confirmation',

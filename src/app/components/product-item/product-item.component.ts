@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../models/product.models';
+import { Product } from '../../models/product.models';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-item',
