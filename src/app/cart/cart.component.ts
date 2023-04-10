@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product.models';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +15,17 @@ export class CartComponent implements OnInit {
 
   constructor(private service: CartService) {
     this.myForm = new FormGroup({
-      productAmount: new FormControl(0),
+      name: new FormControl('', [Validators.required]),
+      address: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      creditCard: new FormControl('', [
+        Validators.required,
+        Validators.minLength(16),
+        Validators.maxLength(16),
+        Validators.pattern('[0-9]*'),
+      ]),
     });
   }
 
@@ -25,17 +35,23 @@ export class CartComponent implements OnInit {
   }
   removeProductFromCart(product: Product) {
     this.service.removeProductFromCart(product);
-    this.cartItmes = this.service.getCart();
-    this.totalPrice = this.service.getTotalPrice();
+    this.updateCart();
   }
 
   handleUpdateProductAmount(product: Product) {
     this.service.updateCart(product);
+    this.updateCart();
+  }
+  updateCart() {
     this.cartItmes = this.service.getCart();
     this.totalPrice = this.service.getTotalPrice();
   }
 
-  checkout() {
-    console.log('checkout');
+  checkout(): void {
+    if (this.totalPrice < 1) {
+      alert('Please add items to your cart');
+    } else {
+      alert('Your order has been placed');
+    }
   }
 }
