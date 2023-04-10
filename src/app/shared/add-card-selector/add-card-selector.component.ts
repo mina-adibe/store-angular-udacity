@@ -21,7 +21,7 @@ export class AddCardSelectorComponent implements OnInit {
 
   constructor(private cartService: CartService) {
     this.myForm = new FormGroup({
-      productAmount: new FormControl(),
+      productAmount: new FormControl(0),
     });
   }
 
