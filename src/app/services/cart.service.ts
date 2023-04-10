@@ -1,13 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.models';
+import { Product, User } from '../models/product.models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   cart: Product[] = [];
+  user: User = {
+    name: '',
+    address: '',
+    creditCard: '',
+  };
 
   constructor() {}
+
+  getUser(): User {
+    return this.user;
+  }
+
+  setUser(user: User) {
+    this.user = user;
+  }
 
   addToCart(product: Product) {
     const index = this.cart.findIndex((p) => p.id === product.id);
@@ -39,7 +52,6 @@ export class CartService {
     this.cart.forEach((product) => {
       total += product.price * product.amount;
     });
-    console.log(total);
 
     return total;
   }

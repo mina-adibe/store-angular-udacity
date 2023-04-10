@@ -19,17 +19,5 @@ export class ProductItemComponent {
   };
   // myForm: FormGroup;
 
-  constructor(private cartService: CartService) {
-    // this.myForm = new FormGroup({
-    //   productAmount: new FormControl(0),
-    // });
-  }
-  // addToCart(product: Product) {
-  //   this.product.amount = Number(this.myForm.value.productAmount);
-  //   this.cartService.addToCart(product);
-  // }
-
-  // onsubmit() {
-  //   console.log(this.myForm.value);
-  // }
+  constructor() {}
 }

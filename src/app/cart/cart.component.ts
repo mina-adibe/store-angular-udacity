@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product.models';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ export class CartComponent implements OnInit {
   cartItmes: Product[] = [];
   myForm: FormGroup;
 
-  constructor(private service: CartService) {
+  constructor(private service: CartService, private router: Router) {
     this.myForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       address: new FormControl('', [
@@ -32,6 +33,11 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartItmes = this.service.getCart();
     this.totalPrice = this.service.getTotalPrice();
+
+    // update cart form user input
+    this.myForm.valueChanges.subscribe((formValue) => {
+      this.service.setUser({ ...formValue });
+    });
   }
   removeProductFromCart(product: Product) {
     this.service.removeProductFromCart(product);
@@ -52,6 +58,8 @@ export class CartComponent implements OnInit {
       alert('Please add items to your cart');
     } else {
       alert('Your order has been placed');
+
+      this.router.navigate(['/confirm']);
     }
   }
 }

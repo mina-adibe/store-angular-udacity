@@ -31,8 +31,4 @@ export class AddCardSelectorComponent implements OnInit {
     this.product.amount = Number(this.myForm.value.productAmount);
     this.cartService.addToCart(product);
   }
-
-  onsubmit() {
-    console.log(this.myForm.value);
-  }
 }

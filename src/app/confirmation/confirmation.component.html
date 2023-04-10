@@ -1,1 +1,19 @@
-<p>confirmation works!</p>
+<div class="flex items-center justify-center mt-[8%]">
+  <div class="flex flex-col items-center">
+    <h1 class="confirmation-header text-[#33e5bc]">Success! 🚀</h1>
+    <p class="mb-8">
+      Thank you, <strong>{{ user.name }}</strong>
+    </p>
+    <p class="mb-8">
+      Your <strong>{{ totalPrice | currency : "EUR" }}</strong> order is
+      confirmed!
+    </p>
+    <p class="mb-8">
+      Delivery address: <strong>{{ user.address }}</strong>
+    </p>
+    <p class="mb-8">Please allow 1-3 business day(s) for shipping.</p>
+    <button class="btn btn-primary" routerLink="/products">
+      Back to Products
+    </button>
+  </div>
+</div>
